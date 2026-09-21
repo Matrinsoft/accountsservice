@@ -1,0 +1,73 @@
+# Bulgarian translation of accountsservice po-file.
+# Copyright (C) 2024 Twlvnn Kraftwerk <kraft_werk@tutanota.com>.
+# This file is distributed under the same license as the accountsservice package.
+# twlvnn <kraft_werk@tutanota.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: accounts service\n"
+"Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/accountsservice/"
+"accountsservice/-/issues\n"
+"POT-Creation-Date: 2025-01-13 03:24+0000\n"
+"PO-Revision-Date: 2025-01-31 16:56+0100\n"
+"Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
+"Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 47.0\n"
+
+#: data/org.freedesktop.accounts.policy.in:11
+msgid "Change your own user data"
+msgstr "Промяна на данните ви"
+
+#: data/org.freedesktop.accounts.policy.in:12
+msgid "Authentication is required to change your own user data"
+msgstr "За да промените потребителските си данни е необходима идентификация"
+
+#: data/org.freedesktop.accounts.policy.in:21
+msgid "Change your own user password"
+msgstr "Промяна на паролата ви"
+
+#: data/org.freedesktop.accounts.policy.in:22
+msgid "Authentication is required to change your own user password"
+msgstr "За да промените паролата си е необходима идентификация"
+
+#: data/org.freedesktop.accounts.policy.in:31
+msgid "Manage user accounts"
+msgstr "Управление на потребителски регистрации"
+
+#: data/org.freedesktop.accounts.policy.in:32
+msgid "Authentication is required to change user data"
+msgstr "За да промените потребителски данни е необходима идентификация"
+
+#: data/org.freedesktop.accounts.policy.in:41
+msgid "Change the login screen configuration"
+msgstr "Промяна на настройките на екрана за вход"
+
+#: data/org.freedesktop.accounts.policy.in:42
+msgid "Authentication is required to change the login screen configuration"
+msgstr ""
+"За да промените настройките на екрана за вход е необходима идентификация"
+
+#: src/main.c:223
+msgid "Output version information and exit"
+msgstr "Извеждане на версията и изход"
+
+#: src/main.c:224
+msgid "Replace existing instance"
+msgstr "Заместване на съществуващата инстанция"
+
+#: src/main.c:225
+msgid "Enable debugging code"
+msgstr "Включване на код за изчистване на грешки"
+
+#: src/main.c:244
+msgid ""
+"Provides D-Bus interfaces for querying and manipulating\n"
+"user account information."
+msgstr ""
+"Предоставя интерфейси за D-Bus за търсене и управление на\n"
+"информацията за потребителски регистрации."

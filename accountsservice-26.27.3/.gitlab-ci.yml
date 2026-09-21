@@ -1,0 +1,109 @@
+include:
+  - project: "freedesktop/ci-templates"
+    ref: "5cc6ded703fc990f9d055f0d948ffd4460a9ca40"
+    file: "/templates/fedora.yml"
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS && $CI_PIPELINE_SOURCE == "push"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH
+
+default:
+  interruptible: true
+
+variables:
+  FDO_UPSTREAM_REPO: "accountsservice/accountsservice"
+
+stages:
+  - "build-image"
+  - "build"
+  - "test"
+
+.build.fedora:
+  variables:
+    FDO_DISTRIBUTION_VERSION: "43"
+    FDO_DISTRIBUTION_TAG: "2026-02-28.0"
+
+build-fedora-container:
+  extends:
+    - ".fdo.container-build@fedora"
+    - ".build.fedora"
+  stage: "build-image"
+  variables:
+    FDO_DISTRIBUTION_PACKAGES: >-
+      dbus-devel
+      gcc
+      gettext-devel
+      git
+      glib-devel
+      gobject-introspection-devel
+      gtk-doc
+      make
+      meson
+      ninja-build
+      polkit-devel
+      redhat-rpm-config
+      systemd
+      systemd-devel
+      vala
+      json-c-devel
+      gcovr
+      glibc-all-langpacks
+      patchutils
+      python3-dbusmock
+      python3-gobject-base
+      uncrustify
+      valgrind
+
+build-fedora:
+  extends:
+    - ".fdo.distribution-image@fedora"
+    - ".build.fedora"
+  stage: build
+  script:
+    - meson setup --werror --fatal-meson-warnings -Dgtk_doc=true _build
+    - meson compile -C _build
+  artifacts:
+    name: log-and-build
+    when: always
+    paths:
+      - _build/meson-logs
+
+test-fedora:
+  extends:
+    - ".fdo.distribution-image@fedora"
+    - ".build.fedora"
+  stage: test
+  script:
+    - useradd -u 5555 -ms /bin/bash user
+    - su user -c .ci/run-tests.sh
+    - cp -r "/home/user/${CI_PROJECT_NAME}/_build/" ./
+    - .ci/fail_skipped_tests.py _build/meson-logs/testlog.junit.xml
+    - cat _build/meson-logs/coverage.txt
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'
+  artifacts:
+    name: log-and-coverage
+    when: always
+    reports:
+      junit: "_build/meson-logs/testlog.junit.xml"
+      coverage_report:
+        coverage_format: cobertura
+        path: _build/meson-logs/coverage.xml
+    paths:
+      - _build/meson-logs
+
+#build-ubuntu:
+#  image: ubuntu:rolling
+#  before_script:
+#    - apt-get update
+#    - apt-get install -q -y --no-install-recommends meson ninja-build gobject-introspection gtk-doc-tools gettext libglib2.0-dev libpolkit-gobject-1-dev libsystemd-dev libdbus-1-dev
+#  script:
+#    - meson -Dgtk_doc=true _build
+#    - ninja -C _build all
+

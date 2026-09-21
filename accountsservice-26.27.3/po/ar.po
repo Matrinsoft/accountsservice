@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mosaab Alzoubi <moceap@hotmail.com>, 2013
+# mahmoud0358 <asdaf0358@gmail.com>, 2024.
+# Khalid Abu Shawarib <khalid.shawarib@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: accountsservice\n"
+"Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/accountsservice/"
+"accountsservice/-/issues\n"
+"POT-Creation-Date: 2025-03-08 15:24+0000\n"
+"PO-Revision-Date: 2025-03-08 22:53+0300\n"
+"Last-Translator: Khalid Abu Shawarib <khalid.shawarib@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Gtranslator 47.1\n"
+
+#: data/org.freedesktop.accounts.policy.in:11
+msgid "Change your own user data"
+msgstr "غيّر بيانات المستخدم خاصّتك"
+
+#: data/org.freedesktop.accounts.policy.in:12
+msgid "Authentication is required to change your own user data"
+msgstr "المصادقة مطلوبة لتغيير بيانات المستخدم الخاصة بك"
+
+#: data/org.freedesktop.accounts.policy.in:21
+msgid "Change your own user password"
+msgstr "غيّر كلمة مرور المستخدم خاصّتك"
+
+#: data/org.freedesktop.accounts.policy.in:22
+msgid "Authentication is required to change your own user password"
+msgstr "المصادقة مطلوبة لتغيير كلمة مرور المستخدم الخاصة بك"
+
+#: data/org.freedesktop.accounts.policy.in:31
+msgid "Manage user accounts"
+msgstr "أدر حسابات المستخدمين"
+
+#: data/org.freedesktop.accounts.policy.in:32
+msgid "Authentication is required to change user data"
+msgstr "المصادقة مطلوبة لتغيير بيانات المستخدم"
+
+#: data/org.freedesktop.accounts.policy.in:41
+msgid "Change the login screen configuration"
+msgstr "غيّر إعدادات شاشة الولوج"
+
+#: data/org.freedesktop.accounts.policy.in:42
+msgid "Authentication is required to change the login screen configuration"
+msgstr "المصادقة مطلوبة لتغيير إعدادات شاشة الولوج"
+
+#: src/main.c:223
+msgid "Output version information and exit"
+msgstr "إضهر معلومات الإصدار ثم اخرج"
+
+#: src/main.c:224
+msgid "Replace existing instance"
+msgstr "استبدل النسخة الحالية"
+
+#: src/main.c:225
+msgid "Enable debugging code"
+msgstr "فعّل رمز التنقيح"
+
+#: src/main.c:244
+msgid ""
+"Provides D-Bus interfaces for querying and manipulating\n"
+"user account information."
+msgstr ""
+"يوفر واجهات D-Bus للاستعلام و التعامل مع\n"
+"معلومات حساب المستخدم"
